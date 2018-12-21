@@ -1,0 +1,12 @@
+Started by user [8mha:////4FHF/57psj70FpLQVyLvyK2ZVAozUhECNWwimkVQNj8nAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building remotely on [8mha:////4DDmE6DKmfVbl9ggHDOLPp07pD2pxlp7WwjIwtFf8f2/AAAAnB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy2EgYB/eT83ILSktQi/eKcxLJUQwA49mDyxQAAAA==[0mslave1 (SLAVE) in workspace /home/centos/workspace/seed-job
+Processing provided DSL script
+ERROR: startup failed:
+script: 12: unexpected token: } @ line 12, column 13.
+               }
+               ^
+
+1 error
+
+Finished: FAILURE
