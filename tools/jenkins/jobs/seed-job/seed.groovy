@@ -14,7 +14,7 @@ pipelineJob('dev-pipeline-job') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/citb33/dockers.git')
+            'url'('https://github.com/citb33/docker.git')
           }
         }
 
