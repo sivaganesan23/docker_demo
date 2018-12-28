@@ -14,4 +14,8 @@ node('SLAVE') {
   stage('Packaging'){
     sh 'mvn package'
   }
+  
+  stage('Upload Artifacts') {
+    sh 'mvn deploy'
+  }
 }
