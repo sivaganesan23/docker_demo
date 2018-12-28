@@ -16,6 +16,6 @@ node('SLAVE') {
   }
   
   stage('Upload Artifacts') {
-    sh 'mvn deploy'
+    sh 'mvn deploy -D NEXUS_USERNAME=student -D NEXUS_PASSWORD=student123'
   }
 }
