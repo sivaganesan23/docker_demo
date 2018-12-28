@@ -16,6 +16,9 @@ node('SLAVE') {
   }
   
   stage('Upload Artifacts') {
-    sh 'mvn deploy -D NEXUS_USERNAME=student -D NEXUS_PASSWORD=student123'
+    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'NEXUS-USER-PASS', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+            sh 'mvn deploy -D NEXUS_USERNAME=$USERNAME -D NEXUS_PASSWORD=$PASSWORD'
+        }
+    
   }
 }
