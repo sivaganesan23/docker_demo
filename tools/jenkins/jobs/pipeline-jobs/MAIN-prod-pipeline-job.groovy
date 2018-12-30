@@ -23,6 +23,11 @@ node('SLAVE') {
     }
   }
   stage('TEST-ENV-CREATE') {
+    withCredentials([file(credentialsId: 'CENTOS-USER-PEM-FILE', variable: 'FILE')]) {
+      sh '''cat $FILE >/home/centos/devops.pem
+chmod 600 /home/centos/devops.pem
+'''
+    }
     dir('TERRAFORM') {
       git 'https://github.com/citb33/terraform.git'
       wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
