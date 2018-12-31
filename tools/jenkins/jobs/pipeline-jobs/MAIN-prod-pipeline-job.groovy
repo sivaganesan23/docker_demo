@@ -61,7 +61,14 @@ chmod 600 /home/centos/devops.pem
   }
 
   stage('UI-Testing') {
-    echo 'UI-Testing'
+    dir('SELENIUM') {
+      git 'https://github.com/citb33/selenium-sauce-labs.git'
+      sh '''
+        PUBLIC_IP=$(cat /tmp/pubip)
+        sed -i -e "s/IPADDRESS/$PUBLIC_IP/" src/test/java/framework/CrudStudent.java
+        mvn clean install "-Dremote=true" "-DseleniumGridURL=http://raghudevops33:b0116b16-4028-4d41-9fb7-5acac877120e@ondemand.saucelabs.com:80/wd/hub" "-Dplatform=Windows" "-Dbrowser=Chrome" "-Dbrowserversion=51" "-Doverwrite.binaries=true"
+      '''
+    }
   }
 
   stage('API-Testing') {
@@ -72,25 +79,5 @@ chmod 600 /home/centos/devops.pem
     echo 'Upload-Artifacts'
   }
 
-  stage('Clean-Test-Env') {
-    try {
-      dir('TERRAFORM') {
-              git 'https://github.com/citb33/terraform.git'
-              wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
-              withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'TERRAFORM-KEYS', usernameVariable: 'ACCESS_KEY', passwordVariable: 'SECRET_KEY']]) {
-                  sh '''
-        export AWS_ACCESS_KEY_ID=$ACCESS_KEY
-        export AWS_SECRET_ACCESS_KEY=$SECRET_KEY
-        export AWS_DEFAULT_REGION=us-east-2
-        cd stack-test-env
-        terraform init
-        terraform destroy -auto-approve
-        '''
-              }
-          }
-      }
-    } finally {
-      sh 'rm -f /home/centos/devops.pem'
-    }
-  }
+
 }
