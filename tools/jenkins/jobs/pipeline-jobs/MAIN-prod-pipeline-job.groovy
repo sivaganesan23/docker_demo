@@ -1,3 +1,4 @@
+def DestroyStack = false
 node('SLAVE') {
    stage('CLONE') {
     dir('APPCODE') {
@@ -80,6 +81,7 @@ chmod 600 /home/centos/devops.pem
   }
 
   stage('Clean-Test-Env') {
+    if (DestroyStack) {
     try {
       dir('TERRAFORM') {
               git 'https://github.com/citb33/terraform.git'
@@ -99,5 +101,6 @@ chmod 600 /home/centos/devops.pem
     } finally {
       sh 'rm -f /home/centos/devops.pem'
     }
+  }
   }
 }
