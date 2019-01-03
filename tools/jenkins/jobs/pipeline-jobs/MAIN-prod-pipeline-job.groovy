@@ -1,4 +1,4 @@
-def DestroyStack = false
+def DestroyStack = true
 node('SLAVE') {
    stage('CLONE') {
     dir('APPCODE') {
