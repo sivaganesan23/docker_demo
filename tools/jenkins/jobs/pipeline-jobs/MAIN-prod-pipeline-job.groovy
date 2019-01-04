@@ -74,7 +74,13 @@ chmod 600 /home/centos/devops.pem
   }
 
   stage('API-Testing') {
-    echo 'API-Testing'
+    dir('SELENIUM') {
+      git 'https://github.com/citb33/selenium-sauce-labs.git'
+      sh '''
+        PUBLIC_IP=$(cat /tmp/pubip)
+        python scripts/api-tests.py $PUBLIC_IP
+      '''
+    }
   }
 
   stage('Upload-Artifacts') {
