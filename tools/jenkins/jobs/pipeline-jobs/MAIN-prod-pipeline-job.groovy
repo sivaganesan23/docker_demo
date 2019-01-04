@@ -58,6 +58,7 @@ chmod 600 /home/centos/devops.pem
       }
     } catch(Exception ex) {
       sh 'rm -f /home/centos/devops.pem'
+      throw e
     } 
   }
 
