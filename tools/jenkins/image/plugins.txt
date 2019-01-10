@@ -1,4 +1,3 @@
-git
-ssh-slaves
 seed
-pipeline
+authorize-project
+git
