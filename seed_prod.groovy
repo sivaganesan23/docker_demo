@@ -22,7 +22,7 @@ pipelineJob('prod-pipeline-job') {
           }
         }
       }
-      'scriptPath'('Prod_pipeline.groovy')
+      'scriptPath'('prod_pipeline.groovy')
       'lightweight'(true)
     }
   }
