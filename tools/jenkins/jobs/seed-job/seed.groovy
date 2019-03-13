@@ -53,7 +53,7 @@ pipelineJob('prod-pipeline-job') {
           }
         }
       }
-      'scriptPath'('tools/jenkins/jobs/pipeline-jobs/Prod_pipeline.groovy')
+      'scriptPath'('Prod_pipeline.groovy')
       'lightweight'(true)
     }
   }
