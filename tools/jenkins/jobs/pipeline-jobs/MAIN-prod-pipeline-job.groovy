@@ -2,7 +2,7 @@ def DestroyStack = false
 node('SLAVE') {
    stage('CLONE') {
     dir('APPCODE') {
-      git 'https://github.com/citb33/studentproj-code.git' 
+      git 'https://github.com/sivaganesan23/studentproj-code.git' 
     }
    }
 
@@ -14,7 +14,7 @@ node('SLAVE') {
 
   stage('Code Quality Check') {
     dir('APPCODE') {
-      sh 'mvn sonar:sonar -Dsonar.projectKey=citb33_studentproj-code -Dsonar.organization=citb33 -Dsonar.host.url=https://sonarcloud.io   -Dsonar.login=24dc0afa2658cdc57cdce6f5d3d7538f3ded4276 -D VERSION=$VERSIONNO -D TYPE=$VERSIONTYPE'
+      sh 'mvn sonar:sonar -Dsonar.projectKey=sivaganesan23_studentproj-code2 -Dsonar.organization=sivaganesan23-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e2c37a6baa4f87bc300e98c1d3d5abc7fbcab70a -D VERSION=$VERSIONNO -D TYPE=$VERSIONTYPE'
     }
   }
 
